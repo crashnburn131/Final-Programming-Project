@@ -1,0 +1,380 @@
+/**
+ * 
+ * @maxb 1/15/19
+ * Making a Pokemon battle
+ * 
+ */
+
+import java.util.Scanner;
+public class FinalProject
+{
+    public static void main()
+    {
+        Scanner in = new Scanner(System.in);
+        //two teams of 6 pokemon; Charizard, Blastoise, Venusaur, Ninetails, Dragonite, and Jolteon
+        //attributes: Name, HP, Attack, Defence, Moves, Move PP, Move damage, Move hit chance
+        
+        Pokemon p1 = new Pokemon("Charizard", 360, 293, 280, "Flare Blitz", 15, 120, 100);
+        Pokemon p2 = new Pokemon("Blastoise", 362, 291, 328, "Hydro Pump", 15, 120, 80);
+        Pokemon p3 = new Pokemon("Venusaur", 364, 289, 291, "Solar Beam", 10, 120, 100);
+        Pokemon p4 = new Pokemon("Ninetails", 350, 256, 273, "Moonblast", 15, 95, 100);
+        
+        System.out.println("Welcome players.");
+        System.out.println("Player One your Pokemon are Charizard and Blastoise.");
+        System.out.println("Player Two your Pokemon are Venusaur and Ninetails.");
+        System.out.println("Player One which Pokemon will you start with? 1 for Charizard and 2 for Blastoise");
+        int start1 = in.nextInt();
+        System.out.println("Player Two which Pokemon will you start with? 1 for Venusaur and 2 for Ninetails");
+        int start2 = in.nextInt();
+        
+        if(start1 == 1 && start2 ==1)
+        {
+            System.out.println("Player One sends out Charizard!");
+            System.out.println("Player Two sends out Venusaur!");
+            while(p1.health > 0 || p3.health > 0)
+            {
+                System.out.println("Charizard uses Flare Blitz.");
+                p1.battle(p2);
+                System.out.println("Venusaur uses Solar Beam.");
+                p2.battle(p1);
+            }
+            if(p1.health <= 0)
+            {
+                System.out.print('\u000C');
+                System.out.println("Player One will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1a = in.nextInt();
+                System.out.println("Player Two will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1b = in.nextInt();
+                if(start1a == 1 && start1b == 1)
+                {
+                    System.out.println("Player One sent out Blastoise!");
+                    System.out.println("Player Two sent out Ninetails!");
+                    while(p2.health > 0 || p4.health > 0)
+                    {
+                        System.out.println("Blastoise uses Hydro Pump.");
+                        p2.battle(p4);
+                        System.out.println("Ninetails uses Moonblast.");
+                        p4.battle(p2);
+                    }
+                    if(p2.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player Two Wins!");
+                    }
+                    if(p4.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player One Wins!");
+                    }
+                }
+                if(start1a == 2)
+                {
+                    System.out.println("Player Two Wins!");
+                }
+            }
+            if(p3.health <= 0)
+            {
+                System.out.println('\u000C');
+                System.out.println("Player Two will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1a = in.nextInt();
+                System.out.println("Player One will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1b = in.nextInt();
+                if(start1a == 1 && start1b == 1)
+                {
+                    System.out.println("Player One sent out Blastoise!");
+                    System.out.println("Player Two sent out Ninetails!");
+                    while(p2.health > 0 || p4.health > 0)
+                    {
+                        System.out.println("Blastoise uses Hydro Pump.");
+                        p2.battle(p4);
+                        System.out.println("Ninetails uses Moonblast.");
+                        p4.battle(p2);
+                    }
+                    if(p2.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player Two Wins!");
+                    }
+                    if(p4.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player One Wins!");
+                    }
+                }
+                if(start1b == 2)
+                {
+                    System.out.println("Player One Wins!");
+                }
+            }
+        }
+        
+        if(start1 == 1 && start2 ==2)
+        {
+            System.out.println("Player One sends out Charizard!");
+            System.out.println("Player Two sends out Ninetails!");
+            while(p1.health > 0 || p4.health > 0)
+            {
+                System.out.println("Charizard uses Flare Blitz.");
+                p1.battle(p2);
+                System.out.println("Ninetails uses Moon Blast.");
+                p2.battle(p1);
+            }
+            if(p1.health <= 0)
+            {
+                System.out.print('\u000C');
+                System.out.println("Player One will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1a = in.nextInt();
+                System.out.println("Player Two will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1b = in.nextInt();
+                if(start1a == 1 && start1b == 1)
+                {
+                    System.out.println("Player One sent out Blastoise!");
+                    System.out.println("Player Two sent out Venusaur!");
+                    while(p2.health > 0 || p3.health > 0)
+                    {
+                        System.out.println("Blastoise uses Hydro Pump.");
+                        p2.battle(p4);
+                        System.out.println("Venusaur uses Solar Beam.");
+                        p4.battle(p2);
+                    }
+                    if(p2.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player Two Wins!");
+                    }
+                    if(p3.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player One Wins!");
+                    }
+                }
+                if(start1a == 2)
+                {
+                    System.out.println("Player Two Wins!");
+                }
+            }
+            if(p4.health <= 0)
+            {
+                System.out.println('\u000C');
+                System.out.println("Player Two will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1a = in.nextInt();
+                System.out.println("Player One will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1b = in.nextInt();
+                if(start1a == 1 && start1b == 1)
+                {
+                    System.out.println("Player One sent out Blastoise!");
+                    System.out.println("Player Two sent out Venusaur!");
+                    while(p2.health > 0 || p3.health > 0)
+                    {
+                        System.out.println("Blastoise uses Hydro Pump.");
+                        p2.battle(p4);
+                        System.out.println("Venusaur uses Solar Beam.");
+                        p4.battle(p2);
+                    }
+                    if(p2.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player Two Wins!");
+                    }
+                    if(p3.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player One Wins!");
+                    }
+                }
+                if(start1b == 2)
+                {
+                    System.out.println("Player One Wins!");
+                }
+            }
+        }
+        
+        if(start1 == 2 && start2 ==1)
+        {
+            System.out.println("Player One sends out Blastoise!");
+            System.out.println("Player Two sends out Venusaur!");
+            while(p2.health > 0 || p3.health > 0)
+            {
+                System.out.println("Blastoise uses Hydro Pump.");
+                p2.battle(p3);
+                System.out.println("Venusaur uses Solar Beam.");
+                p3.battle(p2);
+            }
+            if(p2.health <= 0)
+            {
+                System.out.print('\u000C');
+                System.out.println("Player One will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1a = in.nextInt();
+                System.out.println("Player Two will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1b = in.nextInt();
+                if(start1a == 1 && start1b == 1)
+                {
+                    System.out.println("Player One sent out Charizard!");
+                    System.out.println("Player Two sent out Ninetails!");
+                    while(p1.health > 0 || p4.health > 0)
+                    {
+                        System.out.println("Charizard uses Flare Blitz.");
+                        p1.battle(p4);
+                        System.out.println("Ninetails uses Moonblast.");
+                        p4.battle(p1);
+                    }
+                    if(p1.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player Two Wins!");
+                    }
+                    if(p4.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player One Wins!");
+                    }
+                }
+                if(start1a == 2)
+                {
+                    System.out.println("Player Two Wins!");
+                }
+            }
+            if(p3.health <= 0)
+            {
+                System.out.println('\u000C');
+                System.out.println("Player Two will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1a = in.nextInt();
+                System.out.println("Player One will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1b = in.nextInt();
+                if(start1a == 1 && start1b == 1)
+                {
+                    System.out.println("Player One sent out Blastoise!");
+                    System.out.println("Player Two sent out Ninetails!");
+                    while(p1.health > 0 || p4.health > 0)
+                    {
+                        System.out.println("Charizard uses Flare Blitz.");
+                        p1.battle(p4);
+                        System.out.println("Ninetails uses Moonblast.");
+                        p4.battle(p1);
+                    }
+                    if(p2.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player Two Wins!");
+                    }
+                    if(p4.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player One Wins!");
+                    }
+                }
+                if(start1b == 2)
+                {
+                    System.out.println("Player One Wins!");
+                }
+            }
+        }
+        
+        if(start1 == 2 && start2 ==2)
+        {
+            System.out.println("Player One sends out Blastoise!");
+            System.out.println("Player Two sends out Ninetails!");
+            while(p2.health > 0 || p4.health > 0)
+            {
+                System.out.println("Blastoise uses Hydro Pump.");
+                p2.battle(p4);
+                System.out.println("Ninetails uses Moon Blast.");
+                p4.battle(p2);
+            }
+            if(p2.health <= 0)
+            {
+                System.out.print('\u000C');
+                System.out.println("Player One will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1a = in.nextInt();
+                System.out.println("Player Two will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1b = in.nextInt();
+                if(start1a == 1 && start1b == 1)
+                {
+                    System.out.println("Player One sent out Charizard!");
+                    System.out.println("Player Two sent out Venusaur!");
+                    while(p1.health > 0 || p3.health > 0)
+                    {
+                        System.out.println("Charizard uses Flare Blitz.");
+                        p1.battle(p3);
+                        System.out.println("Venusaur uses Solar Beam.");
+                        p3.battle(p1);
+                    }
+                    if(p1.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player Two Wins!");
+                    }
+                    if(p3.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player One Wins!");
+                    }
+                }
+                if(start1a == 2)
+                {
+                    System.out.println("Player Two Wins!");
+                }
+            }
+            if(p4.health <= 0)
+            {
+                System.out.println('\u000C');
+                System.out.println("Player Two will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1a = in.nextInt();
+                System.out.println("Player One will you use your next Pokemon? 1 for yes and 2 for no.");
+                int start1b = in.nextInt();
+                if(start1a == 1 && start1b == 1)
+                {
+                    System.out.println("Player One sent out Charizard!");
+                    System.out.println("Player Two sent out Venusaur!");
+                    while(p1.health > 0 || p3.health > 0)
+                    {
+                        System.out.println("Charizard uses Flare Blitz.");
+                        p1.battle(p3);
+                        System.out.println("Venusaur uses Solar Beam.");
+                        p3.battle(p1);
+                    }
+                    if(p1.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player Two Wins!");
+                    }
+                    if(p3.health <= 0)
+                    {
+                        System.out.println('\u000C');
+                        System.out.println("Player One Wins!");
+                    }
+                }
+                if(start1b == 2)
+                {
+                    System.out.println("Player One Wins!");
+                }
+            }
+        }
+        
+        /*
+         * Battle Damage Formula:
+         * ((2A/5+2)*B*C)/D)/50)+2)*X)*Y/10)*Z)/255
+         * 
+         * A = attacker's Level
+         * B = attacker's Attack or Special
+         * C = attack Power
+         * D = defender's Defense or Special
+         * X = same-Type attack bonus (1 or 1.5)
+         * Y = Type modifiers (40, 20, 10, 5, 2.5, or 0)
+         * Z = a random number between 217 and 255
+         * https://www.math.miami.edu/~jam/azure/compendium/battdam.htm
+         */
+        
+        /*
+         * Attack Hit Chance Formula:
+         * P = M x A x (1-E)
+         * 
+         * P is the probability that the move will hit
+         * M is the accuracy of the move being used
+         * A is the Accuracy of the attacker
+         * E is the Evade of the defender
+         * https://www.math.miami.edu/~jam/azure/attacks/comp/evacc.htm
+         * 100 accuracy has 99.6% hit chance
+         */
+    }
+}
