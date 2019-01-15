@@ -1,0 +1,94 @@
+
+/**
+ * 
+ * @maxb 1/15/19
+ * Creates the Pokemon, gets and sets their values, and makes two Pokemon battle
+ * 
+ */
+
+public class Pokemon
+{
+    String name;
+    String moveName;
+    int health;
+    int attack;
+    int defence;
+    int speed;
+    int movePP;
+    int damage;
+    int hitChance;
+    
+    public Pokemon()
+    {
+        
+        
+    }
+    
+    public Pokemon(String n, int h, int a, int de, String m, int p, int da, int hc)
+    {
+        name = n;
+        health = h;
+        attack = a;
+        defence = de;
+        moveName = m;
+        movePP = p;
+        damage = da;
+        hitChance = hc;
+    }
+    
+    public String toString()
+    {
+        return "Name : " + name + "Health : " + health + "Attack : " + attack + "Defence : " + defence + "Move Name : " 
+        + moveName + "Move PP : " + " Damage : " + damage + "Hit Chance : " + hitChance;
+    }
+    
+    public int getHealth()
+    {
+        return health;
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    
+    public int getAttack()
+    {
+        return attack;
+    }
+    
+    public int getMoveDamage()
+    {
+        return damage;
+    }
+    
+    public int getDefence()
+    {
+        return defence;
+    }  
+    
+    public void setHealth(Pokemon f1, Pokemon f2)
+    {
+        int rand = (int)Math.random()*38+217;
+        int additionalDamage = (((((((42)*(f1.attack)*(f1.damage))*(f2.defence))/50)+2)*(rand))/255);
+        health -= additionalDamage;
+    }
+    
+    public void battle(Pokemon f2) 
+    {
+        int rand2 = (int)Math.random()*99+1;
+        if(rand2 > 94)
+        {
+        f2.setHealth(this, f2);
+        System.out.println(f2.getName() + " has " + f2.getHealth() + " left.");
+        if(f2.getHealth() < 1)
+        {
+            System.out.println(f2.getName() + " has fainted ");
+        }
+        }
+        else
+        {
+           System.out.println("But it missed."); 
+        }
+    }
+}
